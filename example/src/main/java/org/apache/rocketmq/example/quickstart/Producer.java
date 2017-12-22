@@ -31,7 +31,7 @@ public class Producer {
         /*
          * Instantiate with a producer group name.
          */
-        DefaultMQProducer producer = new DefaultMQProducer("please_rename_unique_group_name");
+        DefaultMQProducer producer = new DefaultMQProducer("william_produce_group");
 
         /*
          * Specify name server addresses.
@@ -44,21 +44,22 @@ public class Producer {
          * }
          * </pre>
          */
+        producer.setNamesrvAddr("10.1.5.193:9876");
 
         /*
          * Launch the instance.
          */
         producer.start();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             try {
 
                 /*
                  * Create a message instance, specifying topic, tag and message body.
                  */
-                Message msg = new Message("TopicTest" /* Topic */,
+                Message msg = new Message("wangquan" /* Topic */,
                     "TagA" /* Tag */,
-                    ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
+                    ("Hello RocketMQ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
                 );
 
                 /*

@@ -35,7 +35,7 @@ public class Consumer {
         /*
          * Instantiate with specified consumer group name.
          */
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name_4");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("wangquan_test_group");
 
         /*
          * Specify name server addresses.
@@ -48,12 +48,13 @@ public class Consumer {
          * }
          * </pre>
          */
+        consumer.setNamesrvAddr("10.1.5.193:9876");
+
 
         /*
          * Specify where to start in case the specified consumer group is a brand new one.
          */
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-
         /*
          * Subscribe one more more topics to consume.
          */
